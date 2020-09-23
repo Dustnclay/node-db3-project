@@ -31,13 +31,20 @@ function findSteps(id){
     }
 
 function addStep (stepData,id) {
-    return db('schemes')
-}
+    return db('steps', 'steps.scheme_id','steps.step_number')
+        
+        .where({scheme_id: id}) 
+        .insert(stepData)///////////////////////////////cant figure out
+} 
 
-function update(changes,id){
+function update(changes,id){ 
     return db('schemes')
+        .where({id}) 
+        .update(changes) 
 }
 
 function remove(id){
     return db('schemes')
+        .where({id})
+        .del()
 }
